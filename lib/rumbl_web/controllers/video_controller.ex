@@ -4,6 +4,7 @@ defmodule RumblWeb.VideoController do
   alias Rumbl.Multimedia
   alias Rumbl.Multimedia.Video
 
+  plug :authenticate_user when action in [:new, :index, :show, :edit, :update, :create, :delete]
   plug :load_categories when action in [:new, :create, :edit, :update]
 
   def index(conn, _params, current_user) do
